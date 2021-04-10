@@ -11,6 +11,10 @@ public class AttributeBuilder {
         op(rb)
         rules[attribute] = rb.rules
     }
+
+    public fun attribute(attribute: String, rules: String) {
+        this.rules[attribute] = parseRules(rules)
+    }
 }
 
 public class RuleBuilder {
@@ -28,6 +32,7 @@ public class RuleBuilder {
     public fun isArray() { rules.add(IsArray()) }
     public fun isBoolean() { rules.add(IsBoolean()) }
     public fun isDate() { rules.add(IsDate()) }
+    public fun isIn(vararg values: String) { rules.add(IsIn(*values)) }
     public fun isInteger() { rules.add(IsInteger()) }
     public fun isNumeric() { rules.add(IsNumeric()) }
     public fun isString() { rules.add(IsString()) }

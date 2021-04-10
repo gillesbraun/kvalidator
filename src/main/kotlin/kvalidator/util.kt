@@ -22,14 +22,12 @@ public fun getSize(value: JsonElement?): Double? {
 
 public fun parseRule(value: String): Rule {
     val parts = value.split(":")
+    val args = parts.drop(1).firstOrNull()?.split(",").orEmpty().toTypedArray()
     return when (parts.first().toLowerCase()) {
-        "between" -> {
-            val args = parts[1].split(',')
-            Between(args.first().toInt(), args.last().toInt())
-        }
-        "max" -> Max(parts[1].toInt())
-        "min" -> Min(parts[1].toInt())
-        "size" -> Size(parts[1].toInt())
+        "between" -> Between(args.first().toInt(), args.last().toInt())
+        "max" -> Max(args.first().toInt())
+        "min" -> Min(args.first().toInt())
+        "size" -> Size(args.first().toInt())
         "accepted" -> Accepted()
         "string" -> Accepted()
         "alpha" -> Alpha()
@@ -37,6 +35,8 @@ public fun parseRule(value: String): Rule {
         "alpha_num" -> AlphaNum()
         "email" -> Email()
         "required" -> Required()
+        "not_in" -> NotIn(*args)
+        "in" -> IsIn(*args)
         "numeric" -> IsNumeric()
         "date" -> IsDate()
         "boolean" -> IsBoolean()
@@ -56,6 +56,7 @@ public fun stringifyRule(rule: Rule) : String {
         is Max -> "${rule.name}:${rule.value}"
         is Min -> "${rule.name}:${rule.value}"
         is Size -> "${rule.name}:${rule.value}"
+        is NotIn -> "${rule.name}:${rule.values.joinToString(",")}"
         else -> rule.name
     }
 }

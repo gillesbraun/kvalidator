@@ -184,7 +184,7 @@ All rules will be implemented the same as they are in Laravel. Use their documen
 |Greater Than||
 |Greater Than Or Equal||
 |Image (File)||
-|In||
+|In|✅ IsIn|
 |In Array||
 |Integer|✅ IsInteger|
 |IP Address||
@@ -196,7 +196,7 @@ All rules will be implemented the same as they are in Laravel. Use their documen
 |MIME Type By File Extension||
 |Min|✅ Min|
 |Multiple Of||
-|Not In|NotIn|
+|Not In|✅ NotIn|
 |Not Regex||
 |Nullable||
 |Numeric|✅ IsNumeric|
