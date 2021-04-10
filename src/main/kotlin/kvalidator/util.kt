@@ -4,7 +4,7 @@ import kotlinx.serialization.json.*
 import kvalidator.rules.*
 
 
-public fun getSize(value: JsonElement?): Double? {
+internal fun getSize(value: JsonElement?): Double? {
     return when (value) {
         is JsonPrimitive -> {
             when {
@@ -29,6 +29,7 @@ public fun parseRule(value: String): Rule {
         "min" -> Min(args.first().toInt())
         "size" -> Size(args.first().toInt())
         "accepted" -> Accepted()
+        "digits" -> Digits(args.first().toInt())
         "string" -> Accepted()
         "alpha" -> Alpha()
         "alpha_dash" -> AlphaDash()

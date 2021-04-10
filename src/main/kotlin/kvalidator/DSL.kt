@@ -28,6 +28,7 @@ public class RuleBuilder {
     public fun alphaNum() { rules.add(AlphaNum()) }
     public fun between(min: Int, max: Int) { rules.add(Between(min, max)) }
     public fun confirmed() { rules.add(Confirmed()) }
+    public fun digits(value: Int) { rules.add(Digits(value)) }
     public fun email() { rules.add(Email()) }
     public fun isArray() { rules.add(IsArray()) }
     public fun isBoolean() { rules.add(IsBoolean()) }
