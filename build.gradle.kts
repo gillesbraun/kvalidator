@@ -4,8 +4,6 @@ import java.util.Date
 val LIBRARY_VERSION_NAME = "0.0.4"
 val GROUP_ID = "com.github.gillesbraun"
 val ARTIFACT_ID = rootProject.name
-val BINTRAY_REPOSITORY = "generic"
-val BINTRAY_ORGINIZATION = "murphy"
 val KOTLINX_SERIALIZATION_CORE = "1.1.0"
 val KOTLINX_DATETIME = "0.1.1"
 val SHORT_DESC = """
@@ -15,6 +13,7 @@ val VCS_URL = "https://github.com/gillesbraun/kvalidator.git"
 val WEBSITE_URL = "https://github.com/gillesbraun/kvalidator"
 val ISSUE_TRACKER_URL = "https://github.com/gillesbraun/kvalidator/issues"
 val CONTACT_EMAIL = "braun.gilles.111@gmail.com"
+val CONTACT_NAME = "Gilles Braun"
 
 plugins {
     kotlin("jvm") version "1.4.30"
@@ -69,7 +68,7 @@ publishing {
                 url.set(VCS_URL)
                 developers {
                     developer {
-                        name.set(BINTRAY_ORGINIZATION)
+                        name.set(CONTACT_NAME)
                         email.set(CONTACT_EMAIL)
                     }
                 }
