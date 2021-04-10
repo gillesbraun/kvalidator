@@ -30,6 +30,7 @@ public fun parseRule(value: String): Rule {
         "size" -> Size(args.first().toInt())
         "accepted" -> Accepted()
         "digits" -> Digits(args.first().toInt())
+        "digits_between" -> DigitsBetween(args.first().toInt(), args.last().toInt())
         "string" -> Accepted()
         "alpha" -> Alpha()
         "alpha_dash" -> AlphaDash()
@@ -57,7 +58,10 @@ public fun stringifyRule(rule: Rule) : String {
         is Max -> "${rule.name}:${rule.value}"
         is Min -> "${rule.name}:${rule.value}"
         is Size -> "${rule.name}:${rule.value}"
+        is Digits -> "${rule.name}:${rule.digits}"
+        is DigitsBetween -> "${rule.name}:${rule.min},${rule.max}"
         is NotIn -> "${rule.name}:${rule.values.joinToString(",")}"
+        is IsIn -> "${rule.name}:${rule.values.joinToString(",")}"
         else -> rule.name
     }
 }
