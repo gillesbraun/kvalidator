@@ -6,10 +6,10 @@ import kvalidator.i18n.Lang
 import kvalidator.i18n.en
 import kvalidator.rules.Rule
 
-class Error {
-    val errors: MutableMap<String, MutableList<String>> = mutableMapOf()
+public class Error {
+    public val errors: MutableMap<String, MutableList<String>> = mutableMapOf()
 
-    fun add(attribute: String, reason: String): Unit {
+    public fun add(attribute: String, reason: String): Unit {
         if (errors.contains(attribute)) {
             errors[attribute]?.add(reason)
         } else {
@@ -17,43 +17,43 @@ class Error {
         }
     }
 
-    fun first(attribute: String): String? {
+    public fun first(attribute: String): String? {
         if (errors.contains(attribute)) {
             return errors[attribute]?.get(0)
         }
         return null
     }
 
-    fun get(attribute: String): List<String>? {
+    public fun get(attribute: String): List<String>? {
         if (errors.contains(attribute)) {
             return errors[attribute]?.toList()
         }
         return null
     }
 
-    fun all(): MutableMap<String, MutableList<String>>? {
+    public fun all(): MutableMap<String, MutableList<String>>? {
         if (errors.isEmpty()) {
             return null
         }
         return errors
     }
 
-    val count: Int
+    public val count: Int
         get() = errors.size
 }
 
-class Validator(
-        val data: JsonElement = JsonObject(emptyMap()),
-        val rules: Map<String, List<Rule>> = emptyMap(),
+public class Validator(
+        public val data: JsonElement = JsonObject(emptyMap()),
+        public val rules: Map<String, List<Rule>> = emptyMap(),
         private val lang: Dictionary = en
 ) {
     private val inputErrors = Error()
 
     // attribute_name: [reason1, reason2, reason3]
-    val errors: Map<String, List<String>>
+    public val errors: Map<String, List<String>>
         get() = inputErrors.errors
 
-    fun validate(): Boolean {
+    public fun validate(): Boolean {
         when (data) {
             is JsonObject -> {
                 rules.forEach { (attribute, ruleItems) ->
@@ -68,6 +68,7 @@ class Validator(
                     }
                 }
             }
+            else -> TODO("Only JsonObject can be validated")
         }
         return inputErrors.count == 0
     }

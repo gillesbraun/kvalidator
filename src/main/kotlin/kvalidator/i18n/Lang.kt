@@ -3,9 +3,9 @@ package kvalidator.i18n
 import kotlinx.serialization.json.*
 import kvalidator.rules.*
 
-typealias Dictionary = Map<String, String>
+public typealias Dictionary = Map<String, String>
 
-object Lang {
+public object Lang {
     private val fallbackDictionary = en
 
     private fun missingMessage(rule: Rule, item: JsonElement?): String {
@@ -27,7 +27,7 @@ object Lang {
         }
     }
 
-    fun message(dictionary: Dictionary, rule: Rule, data: JsonObject, attribute: String): String {
+    public fun message(dictionary: Dictionary, rule: Rule, data: JsonObject, attribute: String): String {
         val item = data[attribute]
         val ruleName = rule.name
 

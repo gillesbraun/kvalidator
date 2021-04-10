@@ -9,7 +9,7 @@ import kvalidator.rules.Size
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class StringifyRulesTest : LibraryTest() {
+public class StringifyRulesTest : LibraryTest() {
     @Test
     fun parseAndStringify() {
         val rules = listOf(

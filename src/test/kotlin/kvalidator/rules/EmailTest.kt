@@ -7,7 +7,7 @@ import kotlin.test.assertTrue
 import kvalidator.LibraryTest
 import kvalidator.Validator
 
-class EmailTest : LibraryTest() {
+public class EmailTest : LibraryTest() {
     private val testData = data.getValue("web_types").jsonObject
 
     @Test

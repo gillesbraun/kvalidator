@@ -2,9 +2,9 @@ package kvalidator.rules
 
 import kotlinx.serialization.json.*
 
-class AlphaNum : Rule() {
+public class AlphaNum : Rule() {
     override val name: String = "alpha_num"
-    override fun validate(data: JsonObject?, attribute: String): Boolean {
+    public override fun  validate(data: JsonObject?, attribute: String): Boolean {
         if (data == null) return true
         if (!data.containsKey(attribute)) return true
 

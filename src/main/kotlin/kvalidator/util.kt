@@ -4,7 +4,7 @@ import kotlinx.serialization.json.*
 import kvalidator.rules.*
 
 
-fun getSize(value: JsonElement?): Double? {
+public fun getSize(value: JsonElement?): Double? {
     return when (value) {
         is JsonPrimitive -> {
             when {
@@ -20,7 +20,7 @@ fun getSize(value: JsonElement?): Double? {
     }
 }
 
-fun parseRule(value: String): Rule {
+public fun parseRule(value: String): Rule {
     val parts = value.split(":")
     return when (parts.first().toLowerCase()) {
         "between" -> {
@@ -46,11 +46,11 @@ fun parseRule(value: String): Rule {
     }
 }
 
-fun parseRules(value: String): List<Rule> {
+public fun parseRules(value: String): List<Rule> {
     return value.split("|").map { parseRule(it.trim()) }
 }
 
-fun stringifyRule(rule: Rule) : String {
+public fun stringifyRule(rule: Rule) : String {
     return when(rule) {
         is Between -> "${rule.name}:${rule.min},${rule.max}"
         is Max -> "${rule.name}:${rule.value}"
@@ -60,6 +60,6 @@ fun stringifyRule(rule: Rule) : String {
     }
 }
 
-fun stringifyRules(rules: List<Rule>) : String {
+public fun stringifyRules(rules: List<Rule>) : String {
     return rules.map { stringifyRule(it) }.joinToString("|")
 }

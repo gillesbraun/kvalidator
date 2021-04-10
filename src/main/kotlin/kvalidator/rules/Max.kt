@@ -3,9 +3,9 @@ package kvalidator.rules
 import kotlinx.serialization.json.JsonObject
 import kvalidator.getSize
 
-class Max(val value: Int) : Rule() {
+public class Max(public val value: Int) : Rule() {
     override val name: String = "max"
-    override fun validate(data: JsonObject?, attribute: String): Boolean {
+    public override fun  validate(data: JsonObject?, attribute: String): Boolean {
         if (data == null) return true
         val element = data[attribute]
 

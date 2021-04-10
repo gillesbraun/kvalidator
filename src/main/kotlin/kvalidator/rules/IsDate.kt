@@ -6,9 +6,9 @@ import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
 import java.time.format.DateTimeFormatter
 
-class IsDate : Rule() {
+public class IsDate : Rule() {
     override val name: String = "date"
-    override fun validate(data: JsonObject?, attribute: String): Boolean {
+    public override fun  validate(data: JsonObject?, attribute: String): Boolean {
         if (data == null) return true
         if (!data.containsKey(attribute)) return true
 

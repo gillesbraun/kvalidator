@@ -2,9 +2,9 @@ package kvalidator.rules
 
 import kotlinx.serialization.json.JsonObject
 
-class NotIn(val value: Int, val value2: Int) : Rule() {
+public class NotIn(public val value: Int, public val value2: Int) : Rule() {
     override val name: String = "not_in"
-    override fun validate(data: JsonObject?, attribute: String): Boolean {
+    public override fun  validate(data: JsonObject?, attribute: String): Boolean {
         TODO("Not yet implemented")
 //         if (data == null) return true
 //         val element = data[attribute]

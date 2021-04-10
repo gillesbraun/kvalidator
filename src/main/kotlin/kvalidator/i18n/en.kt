@@ -1,7 +1,7 @@
 package kvalidator.i18n
 
 
-val en = mapOf(
+public val en: Map<String, String> = mapOf(
         "accepted" to "The :attribute must be accepted.",
         "active_url" to "The :attribute is not a valid URL.",
         "after" to "The :attribute must be a date after :date.",

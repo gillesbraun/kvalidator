@@ -7,7 +7,7 @@ import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 import kvalidator.Validator
 
-class SizeTest : LibraryTest() {
+public class SizeTest : LibraryTest() {
     private val testData = data.getValue("value_properties").jsonObject
     private val testJsonSize = testData.getValue("size").jsonObject
 

@@ -4,9 +4,9 @@ import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.booleanOrNull
 
-class IsBoolean : Rule() {
+public class IsBoolean : Rule() {
     override val name: String = "boolean"
-    override fun validate(data: JsonObject?, attribute: String): Boolean {
+    public override fun  validate(data: JsonObject?, attribute: String): Boolean {
         if (data == null) return true
         if (!data.containsKey(attribute)) return true
 

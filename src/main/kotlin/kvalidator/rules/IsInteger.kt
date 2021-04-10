@@ -2,9 +2,9 @@ package kvalidator.rules
 
 import kotlinx.serialization.json.*
 
-class IsInteger : Rule() {
-    override val name = "integer"
-    override fun validate(data: JsonObject?, attribute: String): Boolean {
+public class IsInteger : Rule() {
+    override val name: String = "integer"
+    public override fun  validate(data: JsonObject?, attribute: String): Boolean {
         if (data == null) return true
         if (!data.containsKey(attribute)) return true
 

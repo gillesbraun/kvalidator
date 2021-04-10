@@ -21,6 +21,15 @@ plugins {
     id("maven-publish")
 }
 
+kotlin {
+    explicitApi()
+}
+
+java {
+    withSourcesJar()
+    withJavadocJar()
+}
+
 group = GROUP_ID
 version = LIBRARY_VERSION_NAME
 
@@ -33,11 +42,6 @@ tasks.withType<GenerateMavenPom>().configureEach {
     val matcher = Regex("""generatePomFileFor(\w+)Publication""").matchEntire(name)
     val publicationName = matcher?.let { it.groupValues[1] }
     destination = file("$buildDir/poms/$publicationName-pom.xml")
-}
-
-tasks.register<Jar>("javadocJar") {
-    archiveClassifier.set("javadoc")
-    from("$rootDir/README.md")
 }
 
 fun printResults(desc: TestDescriptor, result: TestResult) {

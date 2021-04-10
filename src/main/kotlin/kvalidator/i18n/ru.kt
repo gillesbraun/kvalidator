@@ -1,6 +1,6 @@
 package kvalidator.i18n
 
-val ru = mapOf(
+public val ru: Map<String, String> = mapOf(
         "accepted" to "Вы должны принять :attribute.",
         "active_url" to "Поле :attribute содержит недействительный URL.",
         "after" to "В поле :attribute должна быть дата после :date.",

@@ -7,7 +7,7 @@ import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 import kvalidator.Validator
 
-class BetweenTest : LibraryTest() {
+public class BetweenTest : LibraryTest() {
     private val testData = data.getValue("value_properties").jsonObject
     private val testJsonBetween = testData.getValue("between").jsonObject
 

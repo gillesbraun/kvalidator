@@ -7,7 +7,7 @@ import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 import kotlin.test.Test
 
-class RequiredTest : LibraryTest() {
+public class RequiredTest : LibraryTest() {
     private val testData = data.getValue("field_properties").jsonObject
     private val invalidData = data.getValue("invalid_data").jsonObject
 

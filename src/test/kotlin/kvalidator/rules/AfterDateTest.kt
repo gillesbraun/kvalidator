@@ -8,7 +8,7 @@ import kotlin.test.assertTrue
 import kotlin.test.assertFalse
 import kotlin.test.Test
 
-class AfterDateTest : LibraryTest() {
+public class AfterDateTest : LibraryTest() {
     @Test
     fun testAfterDate() {
         val minDate = "2000-12-01T00:00:05"

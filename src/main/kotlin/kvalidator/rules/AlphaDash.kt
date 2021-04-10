@@ -2,9 +2,9 @@ package kvalidator.rules
 
 import kotlinx.serialization.json.*
 
-class AlphaDash : Rule() {
+public class AlphaDash : Rule() {
     override val name: String = "alphaDash"
-    override fun validate(data: JsonObject?, attribute: String): Boolean {
+    public override fun  validate(data: JsonObject?, attribute: String): Boolean {
         if (data == null) return true
         if (!data.containsKey(attribute)) return true
 

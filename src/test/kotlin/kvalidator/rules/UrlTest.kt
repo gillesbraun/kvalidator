@@ -7,7 +7,7 @@ import kotlin.test.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
-class UrlTest : LibraryTest() {
+public class UrlTest : LibraryTest() {
     private val testData = data.getValue("web_types").jsonObject
 
     @Test

@@ -14,7 +14,7 @@ import kotlin.test.assertFalse
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class LangTest : LibraryTest() {
+public class LangTest : LibraryTest() {
     private val invalidData = data.getValue("invalid_data").jsonObject
 
     @Test

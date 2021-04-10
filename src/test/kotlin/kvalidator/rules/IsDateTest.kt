@@ -11,7 +11,7 @@ import kotlin.test.assertTrue
 import kotlin.test.assertFalse
 import kotlin.test.Test
 
-class IsDateTest : LibraryTest() {
+public class IsDateTest : LibraryTest() {
     private val testData = data.getValue("date_types").jsonObject
 
     @Test

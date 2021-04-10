@@ -2,9 +2,9 @@ package kvalidator.rules
 
 import kotlinx.serialization.json.*
 
-class Required : Rule() {
+public class Required : Rule() {
     override val name: String = "required"
-    override fun validate(data: JsonObject?, attribute: String): Boolean {
+    public override fun  validate(data: JsonObject?, attribute: String): Boolean {
         if (data == null) return false
         if (!data.containsKey(attribute)) return false
 

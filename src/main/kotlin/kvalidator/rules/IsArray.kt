@@ -3,9 +3,9 @@ package kvalidator.rules
 import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonObject
 
-class IsArray : Rule() {
+public class IsArray : Rule() {
     override val name: String = "array"
-    override fun validate(data: JsonObject?, attribute: String): Boolean {
+    public override fun  validate(data: JsonObject?, attribute: String): Boolean {
         if (data == null) return true
         if (!data.containsKey(attribute)) return true
 

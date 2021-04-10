@@ -7,7 +7,7 @@ import kvalidator.Validator
 import kotlin.test.Test
 import kotlin.test.assertTrue
 
-class AlphaNumTest : LibraryTest() {
+public class AlphaNumTest : LibraryTest() {
     @Test
     fun testValidAlphaNum() {
         val testJson = JsonObject(mapOf("alpha" to JsonPrimitive("AAbbD3DD11cc")))
