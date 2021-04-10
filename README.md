@@ -22,7 +22,7 @@ repositories {
 }
 
 dependencies {
-    implementation "com.github.gillesbraun:kvalidator:0.0.6"
+    implementation "com.github.gillesbraun:kvalidator:0.0.7"
 }
 ```
 
