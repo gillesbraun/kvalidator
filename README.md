@@ -169,9 +169,9 @@ All rules will be implemented the same as they are in Laravel. Use their documen
 |Date|✅ IsDate|
 |Date Equals||
 |Date Format||
-|Different||
-|Digits||
-|Digits Between||
+|Different|✅ Different|
+|Digits|✅ Digits|
+|Digits Between|✅ DigitsBetween|
 |Dimensions (Image Files)||
 |Distinct||
 |Email|✅ Email|
@@ -213,7 +213,7 @@ All rules will be implemented the same as they are in Laravel. Use their documen
 |Required With All||
 |Required Without||
 |Required Without All||
-|Same||
+|Same|✅ Same|
 |Size|✅ Size|
 |Sometimes||
 |Starts With||

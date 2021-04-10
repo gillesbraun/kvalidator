@@ -1,5 +1,5 @@
 
-val LIBRARY_VERSION_NAME = "0.0.6"
+val LIBRARY_VERSION_NAME = "0.0.7"
 val GROUP_ID = "com.github.gillesbraun"
 val ARTIFACT_ID = rootProject.name
 val KOTLINX_SERIALIZATION_CORE = "1.1.0"
