@@ -4,24 +4,20 @@
 
 * Readable and declarative validation rules.
 * Error messages with multilingual support.
-
-Support platform:
- * JVM
- * Android
  
 ## Installation
-```kts
-
-Required dependencies 
+Required dependencies
 - kotlin 1.4
-- kotlinx.serialization: min 1.0.0-RC
+- kotlinx.serialization: min 1.1.0
+- kotlinx.datetime: min 0.1.1
 
+```kts
 repositories {
-    jcenter()
+    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
-    implementation("com.github.marifeta:kvalidator:1.0.0")
+    implementation "com.github.gillesbraun:kvalidator:0.0.5"
 }
 ```
 
@@ -43,11 +39,10 @@ val rules = mapOf<String, List<Rule>>(
 )
 
 val validator = Validator(testJson, rules, /* lang = en */)
-validator.validate() // true 
-
-// or
-if(!validator.validate()) {
-    validator.errors.forEach {(attribute, messages)->
+try {
+    validator.validate()
+} catch(e: ValidationException) {
+    e.errors.forEach {(attribute, messages)->
         messages.forEach { msg ->
             println("Error: $attribute has error by $msg")
         }
@@ -55,14 +50,32 @@ if(!validator.validate()) {
 }
 
 ```
-#### Errors
+#### Validate using DSL and json as String
 ```kt
+val testJson = """
+    {
+        "clientId": 65000,
+        "aNumber": 15,
+        "uid": "2f-bb-11-ef"
+    }
+""".trimIndent()
 
-val firstError = validator.errors.first() // firstError or null
-val validator.errors // mutableListOf(reason) or null
-val errorCount = validator.errors.count // errors.size (int)
-
+validate(testJson) {
+    attribute("clientId") {
+        required()
+        isInteger()
+    }
+    attribute("aNumber") {
+        required()
+        isInteger()
+    }
+    attribute("uid") {
+        required()
+        isString()
+    }
+}
 ```
+
 #### Utils
 ```kt
 parseRule("max:255"): Rule

@@ -31,17 +31,6 @@ java {
 group = GROUP_ID
 version = LIBRARY_VERSION_NAME
 
-tasks.register<Jar>("sourcesAll") {
-    from(sourceSets.main.get().allSource)
-    archiveClassifier.set("sources")
-}
-
-tasks.withType<GenerateMavenPom>().configureEach {
-    val matcher = Regex("""generatePomFileFor(\w+)Publication""").matchEntire(name)
-    val publicationName = matcher?.let { it.groupValues[1] }
-    destination = file("$buildDir/poms/$publicationName-pom.xml")
-}
-
 fun printResults(desc: TestDescriptor, result: TestResult) {
     if (desc.parent != null) {
         val output = result.run {
@@ -58,12 +47,19 @@ fun printResults(desc: TestDescriptor, result: TestResult) {
         println(seperationLine)
     }
 }
+
 publishing {
     publications {
         create<MavenPublication>("mavenJava") {
             from(components["java"])
-            artifact(tasks["sourcesAll"])
-            artifact(tasks["javadocJar"])
+            versionMapping {
+                usage("java-api") {
+                    fromResolutionOf("runtimeClasspath")
+                }
+                usage("java-runtime") {
+                    fromResolutionResult()
+                }
+            }
             pom {
                 name.set(provider { "$GROUP_ID:$ARTIFACT_ID" })
                 description.set(provider { project.description ?: SHORT_DESC })

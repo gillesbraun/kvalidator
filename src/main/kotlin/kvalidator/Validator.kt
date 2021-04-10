@@ -48,15 +48,12 @@ public class Validator(
 
             if (errors.isNotEmpty()) {
                 // Return the failed validations for this attribute
-                FailedValidation(
-                    attribute = attribute,
-                    errors = errors
-                )
+                attribute to errors
             } else {
                 null
             }
 
-        }
+        }.toMap()
 
         if (failed.isNotEmpty()) {
             throw ValidationException(failed)

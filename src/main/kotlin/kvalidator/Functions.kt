@@ -41,8 +41,8 @@ public fun validate(
  */
 public fun validate(
     data: JsonObject,
+    rules: Map<String, List<Rule>>,
     language: Dictionary = en,
-    rules: Map<String, List<Rule>>
 ) {
     Validator(data, rules, language).validate()
 }
@@ -52,9 +52,9 @@ public fun validate(
  */
 public fun validate(
     data: String,
+    rules: Map<String, List<Rule>>,
     language: Dictionary = en,
     json: Json = Json.Default,
-    rules: Map<String, List<Rule>>
 ) {
     val dataJson = json.parseToJsonElement(data).jsonObject
     Validator(dataJson, rules, language).validate()
