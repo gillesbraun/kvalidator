@@ -104,6 +104,30 @@ fun Application.module(testing: Boolean = false) {
         }
     }
 }
+
+@Serializable
+data class TestObject(
+    val clientId: Int,
+    val aNumber: Int,
+    val uid: String,
+) {
+    companion object {
+        val rules = rules {
+            attribute("clientId") {
+                required()
+                isInteger()
+            }
+            attribute("aNumber") {
+                required()
+                isInteger()
+            }
+            attribute("uid") {
+                required()
+                isString()
+            }
+        }
+    }
+}
 ```
 
 #### Utils
