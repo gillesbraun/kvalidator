@@ -28,7 +28,9 @@ public class RuleBuilder {
     public fun alphaNum() { rules.add(AlphaNum()) }
     public fun between(min: Int, max: Int) { rules.add(Between(min, max)) }
     public fun confirmed() { rules.add(Confirmed()) }
+    public fun different(otherField: String) { rules.add(Different(otherField)) }
     public fun digits(value: Int) { rules.add(Digits(value)) }
+    public fun digitsBetween(min: Int, max: Int) { rules.add(DigitsBetween(min, max)) }
     public fun email() { rules.add(Email()) }
     public fun isArray() { rules.add(IsArray()) }
     public fun isBoolean() { rules.add(IsBoolean()) }
@@ -42,5 +44,6 @@ public class RuleBuilder {
     public fun notIn(vararg values: String) { rules.add(NotIn(*values)) }
     public fun required() { rules.add(Required()) }
     public fun size(value: Int) { rules.add(Size(value)) }
+    public fun same(otherField: String) { rules.add(Same(otherField)) }
     public fun url() { rules.add(Url()) }
 }

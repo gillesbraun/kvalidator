@@ -41,6 +41,8 @@ public fun parseRule(value: String): Rule {
         "in" -> IsIn(*args)
         "numeric" -> IsNumeric()
         "date" -> IsDate()
+        "different" -> Different(args.first())
+        "same" -> Same(args.first())
         "boolean" -> IsBoolean()
         "integer" -> IsInteger()
         "url" -> Url()
