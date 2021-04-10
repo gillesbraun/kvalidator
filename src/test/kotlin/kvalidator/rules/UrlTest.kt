@@ -16,7 +16,7 @@ public class UrlTest : LibraryTest() {
             val testJson = JsonObject(mapOf("url" to url))
             val rule = mapOf<String, List<Rule>>("url" to listOf(Url()))
 
-            assertTrue(Validator(testJson, rule).validate(), """result for ${testJson["url"]} should return true""")
+            assertTrue(Validator(testJson, rule).passes(), """result for ${testJson["url"]} should return true""")
         }
     }
 
@@ -32,7 +32,7 @@ public class UrlTest : LibraryTest() {
 
         for (item in testJson) {
             val rule = mapOf<String, List<Rule>>(item.key to listOf(Url()))
-            assertFalse(Validator(testJson, rule).validate(), """result for "${item.value}" should return false""")
+            assertFalse(Validator(testJson, rule).passes(), """result for "${item.value}" should return false""")
         }
     }
 }

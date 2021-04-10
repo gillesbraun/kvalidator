@@ -12,6 +12,6 @@ public class AlphaTest : LibraryTest() {
     fun testValidAlpha() {
         val testJson = JsonObject(mapOf("alpha" to JsonPrimitive("AAbbDDDcc")))
         val rule = mapOf<String, List<Rule>>("alpha" to listOf(Alpha()))
-        assertTrue(Validator(testJson, rule).validate(), """result for ${testJson["alpha"]} should return true""")
+        assertTrue(Validator(testJson, rule).passes(), """result for ${testJson["alpha"]} should return true""")
     }
 }

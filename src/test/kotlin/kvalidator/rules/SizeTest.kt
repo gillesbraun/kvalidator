@@ -18,7 +18,7 @@ public class SizeTest : LibraryTest() {
             "v2" to listOf(Size(3)),
             "v3" to listOf(Size(7))
         )
-        assertTrue(Validator(testJsonSize, rules).validate(), "result should return true")
+        assertTrue(Validator(testJsonSize, rules).passes(), "result should return true")
     }
 
     @Test
@@ -28,6 +28,6 @@ public class SizeTest : LibraryTest() {
             "v2" to listOf(Size(2)),
             "v3" to listOf(Size(8))
         )
-        assertFalse(Validator(testJsonSize, rules).validate(), "result should return false")
+        assertFalse(Validator(testJsonSize, rules).passes(), "result should return false")
     }
 }

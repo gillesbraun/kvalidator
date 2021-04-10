@@ -15,7 +15,7 @@ public class ConfirmedTest : LibraryTest() {
     fun testConfirmedField() {
         val testJson = testData.getValue("confirmed").jsonObject
         val rule = mapOf<String, List<Rule>>("field" to listOf(Confirmed()))
-        assertTrue(Validator(testJson, rule).validate(), """result for ${testJson["field"]} should return true""")
+        assertTrue(Validator(testJson, rule).passes(), """result for ${testJson["field"]} should return true""")
     }
 
     @Test
@@ -23,7 +23,7 @@ public class ConfirmedTest : LibraryTest() {
         for (data in testData.getValue("confirmed_false").jsonArray) {
             val testJson = JsonObject(mapOf("field" to data))
             val rule = mapOf<String, List<Rule>>("field" to listOf(Confirmed()))
-            assertFalse(Validator(testJson, rule).validate(), """result for ${testJson["field"]} should return false""")
+            assertFalse(Validator(testJson, rule).passes(), """result for ${testJson["field"]} should return false""")
         }
     }
 }

@@ -2,6 +2,7 @@ package kvalidator.i18n
 
 import kotlinx.serialization.json.jsonObject
 import kvalidator.LibraryTest
+import kvalidator.ValidationException
 import kvalidator.Validator
 import kvalidator.rules.Email
 import kvalidator.rules.IsBoolean
@@ -13,6 +14,7 @@ import kvalidator.rules.Size
 import kotlin.test.assertFalse
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
 
 public class LangTest : LibraryTest() {
     private val invalidData = data.getValue("invalid_data").jsonObject
@@ -31,9 +33,12 @@ public class LangTest : LibraryTest() {
         )
 
         val validator = Validator(invalidData, rules, lang = en)
-        assertFalse(validator.validate())
 
-        validator.errors.forEach { (attrName, errors) ->
+        val exception = assertFailsWith(ValidationException::class) {
+            validator.validate()
+        }
+
+        exception.errors.forEach { (_, errors) ->
             assertEquals(errors[0], "The short_5_email must be at least 8 characters.")
             assertEquals(errors[1], "The short_5_email must be 8 characters.")
             assertEquals(errors[2], "The short_5_email field must be true or false.")

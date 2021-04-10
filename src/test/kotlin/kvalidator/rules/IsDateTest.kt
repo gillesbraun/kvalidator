@@ -33,7 +33,7 @@ public class IsDateTest : LibraryTest() {
         for (date in testData.getValue("date").jsonArray) {
             val testJson = JsonObject(mapOf("date" to date))
             val rule = mapOf<String, List<Rule>>("date" to listOf(IsDate()))
-            assertTrue(Validator(testJson, rule).validate(), """result for ${testJson["date"]} should return true""")
+            assertTrue(Validator(testJson, rule).passes(), """result for ${testJson["date"]} should return true""")
         }
     }
 
@@ -41,6 +41,6 @@ public class IsDateTest : LibraryTest() {
     fun testInvalidDate() {
         val testJson = JsonObject(mapOf("date" to JsonPrimitive("fri 21 october")))
         val rule = mapOf<String, List<Rule>>("date" to listOf(IsDate()))
-        assertFalse(Validator(testJson, rule).validate(), """result for ${testJson["date"]} should return false""")
+        assertFalse(Validator(testJson, rule).passes(), """result for ${testJson["date"]} should return false""")
     }
 }

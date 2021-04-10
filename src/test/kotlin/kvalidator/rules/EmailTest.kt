@@ -20,7 +20,7 @@ public class EmailTest : LibraryTest() {
                 )
             )
 
-            assertTrue(Validator(testJson, rule).validate(), """result for ${testJson["email"]} should return true""")
+            assertTrue(Validator(testJson, rule).passes(), """result for ${testJson["email"]} should return true""")
         }
     }
 
@@ -42,7 +42,7 @@ public class EmailTest : LibraryTest() {
                     Email()
                 )
             )
-            assertFalse(Validator(testJson, rule).validate(), """result for "${item.value}" should return false""")
+            assertFalse(Validator(testJson, rule).passes(), """result for "${item.value}" should return false""")
         }
     }
 }

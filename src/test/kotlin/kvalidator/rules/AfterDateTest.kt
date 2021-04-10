@@ -18,7 +18,7 @@ public class AfterDateTest : LibraryTest() {
         var testJson = JsonObject(mapOf("date" to JsonPrimitive(maxDate)))
         var rule = mapOf<String, List<Rule>>("date" to listOf(AfterDate(minDate)))
         assertTrue(
-            Validator(testJson, rule).validate(),
+            Validator(testJson, rule).passes(),
             """result for $minDate > ${testJson["date"]} should return true"""
         )
 
@@ -26,7 +26,7 @@ public class AfterDateTest : LibraryTest() {
         testJson = JsonObject(mapOf("date" to JsonPrimitive(minDate)))
         rule = mapOf<String, List<Rule>>("date" to listOf(AfterDate(maxDate)))
         assertFalse(
-            Validator(testJson, rule).validate(),
+            Validator(testJson, rule).passes(),
             """result for $minDate > ${testJson["date"]} should return false"""
         )
     }

@@ -18,7 +18,7 @@ public class MaxTest : LibraryTest() {
             "v2" to listOf(Max(3)),
             "v3" to listOf(Max(8))
         )
-        assertTrue(Validator(testJsonSize, rules).validate(), "result should return true")
+        assertTrue(Validator(testJsonSize, rules).passes(), "result should return true")
     }
 
     @Test
@@ -28,6 +28,6 @@ public class MaxTest : LibraryTest() {
             "v2" to listOf(Max(2)),
             "v3" to listOf(Max(4))
         )
-        assertFalse(Validator(testJsonSize, rules).validate(), "result should return false")
+        assertFalse(Validator(testJsonSize, rules).passes(), "result should return false")
     }
 }

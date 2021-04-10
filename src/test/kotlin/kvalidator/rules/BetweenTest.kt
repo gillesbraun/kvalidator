@@ -17,7 +17,7 @@ public class BetweenTest : LibraryTest() {
             "one_number" to listOf(Between(5, 30)),
             "one_string" to listOf(Between(3, 7))
         )
-        assertTrue(Validator(testJsonBetween, rules).validate(), "result should return true")
+        assertTrue(Validator(testJsonBetween, rules).passes(), "result should return true")
     }
 
     @Test
@@ -28,6 +28,6 @@ public class BetweenTest : LibraryTest() {
             "one_string" to listOf(Between(6, 14))
         )
 
-        assertFalse(Validator(testJson, rules).validate(), "result should return false")
+        assertFalse(Validator(testJson, rules).passes(), "result should return false")
     }
 }

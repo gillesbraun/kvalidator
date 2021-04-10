@@ -31,7 +31,7 @@ public class TestTypes(private val ruleClass: Rule, private val keyNames: List<S
     fun testValidTypes() {
         for (keyName in keyNames) {
             val rules = mapOf(keyName to listOf(ruleClass))
-            assertTrue(Validator(testData, rules).validate(), """result for "$keyName" should return true""")
+            assertTrue(Validator(testData, rules).passes(), """result for "$keyName" should return true""")
         }
     }
 
@@ -40,7 +40,7 @@ public class TestTypes(private val ruleClass: Rule, private val keyNames: List<S
         for (item in testData) {
             if (item.key !in keyNames) {
                 val rules = mapOf(item.key to listOf(ruleClass))
-                assertFalse(Validator(testData, rules).validate(), """result for "${item.key}" should return false""")
+                assertFalse(Validator(testData, rules).passes(), """result for "${item.key}" should return false""")
             }
         }
     }
@@ -48,6 +48,6 @@ public class TestTypes(private val ruleClass: Rule, private val keyNames: List<S
     @Test
     fun testNonexistentKey() {
         val rules = mapOf("nonexistent" to listOf(ruleClass))
-        assertTrue(Validator(testData, rules).validate(), "result should return true")
+        assertTrue(Validator(testData, rules).passes(), "result should return true")
     }
 }

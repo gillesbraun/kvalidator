@@ -16,7 +16,7 @@ public class RequiredTest : LibraryTest() {
         for (data in testData.getValue("required").jsonArray) {
             val testJson = JsonObject(mapOf("field" to data))
             val rule = mapOf<String, List<Rule>>("field" to listOf(Required()))
-            assertTrue(Validator(testJson, rule).validate(), """result for ${testJson["field"]} should return true""")
+            assertTrue(Validator(testJson, rule).passes(), """result for ${testJson["field"]} should return true""")
         }
     }
 
@@ -25,7 +25,7 @@ public class RequiredTest : LibraryTest() {
         for (data in testData.getValue("required_empty").jsonArray) {
             val testJson = JsonObject(mapOf("field" to data))
             val rule = mapOf<String, List<Rule>>("field" to listOf(Required()))
-            assertFalse(Validator(testJson, rule).validate(), """result for ${testJson["field"]} should return false""")
+            assertFalse(Validator(testJson, rule).passes(), """result for ${testJson["field"]} should return false""")
         }
     }
 }
