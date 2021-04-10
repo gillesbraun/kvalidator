@@ -1,5 +1,7 @@
 # **kvalidator**
 
+[![](https://jitpack.io/v/gillesbraun/kvalidator.svg)](https://jitpack.io/#gillesbraun/kvalidator)
+
 ## Why use kvalidator?
 
 * Readable and declarative validation rules.
