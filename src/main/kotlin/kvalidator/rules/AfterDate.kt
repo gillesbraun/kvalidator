@@ -1,7 +1,6 @@
 package kvalidator.rules
 
 import kotlinx.serialization.json.JsonObject
-import kotlinx.serialization.json.JsonLiteral
 import kotlinx.serialization.json.JsonPrimitive
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter

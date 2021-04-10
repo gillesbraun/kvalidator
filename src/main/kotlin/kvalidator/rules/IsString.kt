@@ -1,6 +1,5 @@
 package kvalidator.rules
 
-import kotlinx.serialization.json.JsonLiteral
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
 

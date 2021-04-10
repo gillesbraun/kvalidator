@@ -1,6 +1,5 @@
 package kvalidator.rules
 
-import kotlinx.serialization.json.getObject
 import kotlinx.serialization.json.jsonObject
 import kvalidator.LibraryTest
 import kvalidator.Validator
