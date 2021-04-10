@@ -151,22 +151,22 @@ stringifyRule("max:15")
 All rules will be implemented the same as they are in Laravel. Use their documentation for checking how exactly they work.
 
 |laravel|kvalidator|
-|----------|-------|
-|Accepted|✅|
+|-------|----------|
+|Accepted|✅ Accepted|
 |Active URL||
-|After (Date)|✅|
+|After (Date)|✅ AfterDate|
 |After Or Equal (Date)||
-|Alpha|✅|
-|Alpha Dash|✅|
-|Alpha Numeric|✅|
-|Array|✅|
+|Alpha|✅ Alpha|
+|Alpha Dash|✅ AlphaDash|
+|Alpha Numeric|✅ AlphaNum|
+|Array|✅ IsArray|
 |Bail||
 |Before (Date)||
 |Before Or Equal (Date)||
-|Between|✅|
-|Boolean|✅|
-|Confirmed|✅|
-|Date|✅|
+|Between|✅ Between|
+|Boolean|✅ IsBoolean|
+|Confirmed|✅ Confirmed|
+|Date|✅ IsDate|
 |Date Equals||
 |Date Format||
 |Different||
@@ -174,7 +174,7 @@ All rules will be implemented the same as they are in Laravel. Use their documen
 |Digits Between||
 |Dimensions (Image Files)||
 |Distinct||
-|Email|✅|
+|Email|✅ Email|
 |Ends With||
 |Exclude If||
 |Exclude Unless||
@@ -186,27 +186,27 @@ All rules will be implemented the same as they are in Laravel. Use their documen
 |Image (File)||
 |In||
 |In Array||
-|Integer|✅|
+|Integer|✅ IsInteger|
 |IP Address||
 |JSON||
 |Less Than||
 |Less Than Or Equal||
-|Max|✅|
+|Max|✅ Max|
 |MIME Types||
 |MIME Type By File Extension||
-|Min|✅|
+|Min|✅ Min|
 |Multiple Of||
-|Not In||
+|Not In|NotIn|
 |Not Regex||
 |Nullable||
-|Numeric|✅|
+|Numeric|✅ IsNumeric|
 |Password||
 |Present||
 |Prohibited||
 |Prohibited If||
 |Prohibited Unless||
 |Regular Expression||
-|Required|✅|
+|Required|✅ Required|
 |Required If||
 |Required Unless||
 |Required With||
@@ -214,13 +214,13 @@ All rules will be implemented the same as they are in Laravel. Use their documen
 |Required Without||
 |Required Without All||
 |Same||
-|Size|✅|
+|Size|✅ Size|
 |Sometimes||
 |Starts With||
-|String|✅|
+|String|✅ IsString|
 |Timezone||
 |Unique (Database)||
-|URL|✅|
+|URL|✅ Url|
 |UUID||
 
 
