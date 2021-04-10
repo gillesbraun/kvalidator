@@ -76,6 +76,36 @@ validate(testJson) {
 }
 ```
 
+#### Example usage in Ktor
+
+```kt
+val json = Json {
+    ignoreUnknownKeys = true
+}
+
+fun Application.module(testing: Boolean = false) {
+
+    install(ContentNegotiation) {
+        json(json)
+    }
+
+    install(StatusPages) {
+        exception<ValidationException> { cause ->
+            call.respond(HttpStatusCode(422, "Validation Failed"), cause)
+        }
+    }
+
+    routing {
+        post("/test") {
+            val jsonText = call.receiveText()
+            validate(jsonText, TestObject.rules)
+            val obj = json.decodeFromString<TestObject>(jsonText)
+            call.respond(obj)
+        }
+    }
+}
+```
+
 #### Utils
 ```kt
 parseRule("max:255"): Rule
